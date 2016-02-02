@@ -7,7 +7,7 @@ This package adds support the laravel's Model Factory' functionnality to the Ana
 Add this line to your composer.json file : 
 
 ```
-composer require analogue/factory --save
+composer require analogue/factory:dev-master
 ```
 
 ## Configuration
@@ -65,7 +65,7 @@ Once you have defined your factories, you may use them in your tests or database
     {
         $user = analogue_factory(App\User::class)->make();
 
-        // Use enity in tests...
+        // Use entity in tests...
     }
 
 If you would like to override some of the default values of your entities, you may pass an array of values to the `make` method. Only the specified values will be replaced while the rest of the values remain set to their default values as specified by the factory:
@@ -93,7 +93,7 @@ The `create` method not only creates the model instances, but also saves them to
     {
         $user = analogue_factory(App\User::class)->create();
 
-        // Use model in tests...
+        // Use entity in tests...
     }
 
 Again, you may override attributes on the model by passing an array to the `create` method:
