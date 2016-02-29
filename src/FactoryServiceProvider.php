@@ -27,7 +27,7 @@ class FactoryServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton(Factory::class, function ($app) {
-            $faker = $app->make(FakerGenerator::class);
+            $faker = FakerGenerator::create();;
             
             $analogueManager = $app->make('analogue');
 
