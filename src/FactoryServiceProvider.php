@@ -3,7 +3,7 @@
 namespace Analogue\Factory;
 
 use Illuminate\Support\ServiceProvider;
-use Faker\Generator as FakerGenerator;
+use Faker\Factory as Faker;
 
 class FactoryServiceProvider extends ServiceProvider
 {
@@ -27,8 +27,8 @@ class FactoryServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton(Factory::class, function ($app) {
-            $faker = FakerGenerator::create();;
-            
+            $faker = Faker::create();
+
             $analogueManager = $app->make('analogue');
 
             return Factory::construct($faker, database_path('factories'), $analogueManager);
