@@ -10,20 +10,24 @@ use Illuminate\Database\Eloquent\FactoryBuilder as EloquentFactoryBuilder;
 use InvalidArgumentException;
 
 class FactoryBuilder extends EloquentFactoryBuilder {
-    
     /**
      * Analogue Entity Manager
-     * 
+     *
      * @var \Analogue\ORM\System\Manager
      */
     protected $manager;
 
     /**
      * Analogue's Entity Factory
-     * 
+     *
      * @var \Analogue\ORM\System\Wrappers\Factory
      */
     protected $entityFactory;
+
+    /**
+     * If times() is used users expects a Collection
+     */
+    protected $expectingCollection = false;
 
     /**
      * Create an new builder instance.
@@ -67,9 +71,7 @@ class FactoryBuilder extends EloquentFactoryBuilder {
      */
     public function make(array $attributes = [])
     {
-        if ($this->amount === 1) {
-            return $this->makeInstance($attributes);
-        } else {
+        if ($this->amount > 1 || $this->expectingCollection) {
             $results = [];
 
             for ($i = 0; $i < $this->amount; $i++) {
@@ -78,11 +80,27 @@ class FactoryBuilder extends EloquentFactoryBuilder {
 
             return new EntityCollection($results);
         }
+
+        return $this->makeInstance($attributes);
+    }
+
+    /**
+     * Set the amount of models you wish to create / make.
+     *
+     * @param  int  $amount
+     * @return $this
+     */
+    public function times($amount)
+    {
+        $this->amount = $amount;
+        $this->expectingCollection = true;
+
+        return $this;
     }
 
     /**
      * Get the mapper's instance for this entity class
-     * 
+     *
      * @return \Analogue\ORM\System\Mapper
      */
     protected function getMapper()
@@ -109,7 +127,7 @@ class FactoryBuilder extends EloquentFactoryBuilder {
         $definition = call_user_func($this->definitions[$this->class][$this->name], $this->faker, $attributes);
 
         $entityWrapper->setEntityAttributes(array_merge($definition, $attributes));
-    
+
         return $entityWrapper->getObject();
     }
 }
