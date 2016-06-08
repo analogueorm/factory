@@ -7,7 +7,7 @@ This package adds support the laravel's Model Factory' functionnality to the Ana
 Add this line to your composer.json file : 
 
 ```
-composer require analogue/factory:dev-master
+composer require analogue/factory
 ```
 
 ## Configuration
