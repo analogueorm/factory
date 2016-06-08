@@ -71,7 +71,9 @@ class FactoryBuilder extends EloquentFactoryBuilder {
      */
     public function make(array $attributes = [])
     {
-        if ($this->amount > 1 || $this->expectingCollection) {
+        if ($this->amount === 1) {
+            return $this->makeInstance($attributes);
+        } else {
             $results = [];
 
             for ($i = 0; $i < $this->amount; $i++) {
@@ -80,22 +82,6 @@ class FactoryBuilder extends EloquentFactoryBuilder {
 
             return new Collection($results);
         }
-
-        return $this->makeInstance($attributes);
-    }
-
-    /**
-     * Set the amount of models you wish to create / make.
-     *
-     * @param  int  $amount
-     * @return $this
-     */
-    public function times($amount)
-    {
-        $this->amount = $amount;
-        $this->expectingCollection = true;
-
-        return $this;
     }
 
     /**
@@ -112,7 +98,7 @@ class FactoryBuilder extends EloquentFactoryBuilder {
      * Make an instance of the model with the given attributes.
      *
      * @param  array  $attributes
-     * @return \Illuminate\Database\Eloquent\Model
+     * @return mixed
      *
      * @throws \InvalidArgumentException
      */
