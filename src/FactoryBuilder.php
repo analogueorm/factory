@@ -2,7 +2,7 @@
 
 namespace Analogue\Factory;
 
-use Analogue\ORM\EntityCollection;
+use Illuminate\Support\Collection;
 use Analogue\ORM\System\Manager;
 use Analogue\ORM\System\Wrappers\Factory as EntityFactory;
 use Faker\Generator as Faker;
@@ -78,7 +78,7 @@ class FactoryBuilder extends EloquentFactoryBuilder {
                 $results[] = $this->makeInstance($attributes);
             }
 
-            return new EntityCollection($results);
+            return new Collection($results);
         }
 
         return $this->makeInstance($attributes);
