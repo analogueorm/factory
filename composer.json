@@ -16,12 +16,12 @@
     },
     "require": {
         "php": ">=5.6.4",
-        "illuminate/support": "^5.3.18",
-        "illuminate/database": "^5.3.18",
+        "illuminate/support": "~5.3",
+        "illuminate/database": "~5.3",
         "fzaninotto/faker": "~1.4"
     },
     "require-dev": {
-        "analogue/orm": "^5.1",
+        "analogue/orm": "~5.3",
         "phpunit/phpunit": "4.*",
         "laravel/laravel": "~5.3",
         "fzaninotto/faker": "~1.4"
