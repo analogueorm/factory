@@ -1,6 +1,6 @@
 {
     "name": "analogue/factory",
-    "description": "Implementation of Illuminate database factory for analogue orm",
+    "description": "Implementation of Illuminate database factory for Analogue orm",
     "homepage": "http://github.com/analogueorm/factory",
     "license": "MIT",
     "authors": [

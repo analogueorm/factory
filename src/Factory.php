@@ -48,7 +48,7 @@ class Factory extends EloquentFactory {
      */
     public function of($class, $name = 'default')
     {
-        return new FactoryBuilder($this->manager, $class, $name, $this->definitions, $this->faker);
+        return new FactoryBuilder($this->manager, $class, $name, $this->definitions, $this->states, $this->faker);
     }
 
 }

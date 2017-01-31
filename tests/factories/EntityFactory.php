@@ -11,3 +11,11 @@ $factory->define(Stubs\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->state(Stubs\User::class, 'custom', function (Faker\Generator $faker) {
+
+	return [
+		'custom' => 'custom',
+	];
+
+});

@@ -21,4 +21,12 @@ class FactoryTest extends FactoryTestCase
         ]);
     }
 
+    /** @test */
+    public function it_generate_entities_with_states()
+    {
+        $user = analogue_factory(User::class)->states('custom')->make();
+        $this->assertInstanceOf(User::class, $user);
+        $this->assertEquals('custom', $user->custom);
+    }
+
 }

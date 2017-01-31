@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\FactoryBuilder as EloquentFactoryBuilder;
 use InvalidArgumentException;
 
 class FactoryBuilder extends EloquentFactoryBuilder {
+
     /**
      * Analogue Entity Manager
      *
@@ -39,14 +40,11 @@ class FactoryBuilder extends EloquentFactoryBuilder {
      * @param  \Faker\Generator  $faker
      * @return void
      */
-    public function __construct(Manager $manager, $class, $name, array $definitions, Faker $faker)
+    public function __construct(Manager $manager, $class, $name, array $definitions, array $states, Faker $faker)
     {
         $this->manager = $manager;
 
         $this->entityFactory = new EntityFactory;
-
-        // Introduced in 
-        $states = [];
 
         parent::__construct($class, $name, $definitions, $states, $faker);
     }
@@ -113,9 +111,11 @@ class FactoryBuilder extends EloquentFactoryBuilder {
 
         $entityWrapper = $this->entityFactory->make($this->getMapper()->newInstance());
 
-        $definition = call_user_func($this->definitions[$this->class][$this->name], $this->faker, $attributes);
+        $definition = call_user_func(
+            $this->definitions[$this->class][$this->name], 
+            $this->faker, $attributes);
 
-        $entityWrapper->setEntityAttributes(array_merge($definition, $attributes));
+        $entityWrapper->setEntityAttributes(array_merge($this->applyStates($definition, $attributes), $attributes));
 
         return $entityWrapper->getObject();
     }
