@@ -15,16 +15,17 @@
         }
     },
     "require": {
-        "php": ">=5.6.4",
-        "illuminate/support": "~5.3.0",
-        "illuminate/database": "~5.3.0",
+        "php": ">=7.0.0",
+        "illuminate/support": "~5.4.0",
+        "illuminate/database": "~5.4.0",
         "fzaninotto/faker": "~1.4"
     },
     "require-dev": {
-        "analogue/orm": "~5.3.0",
-        "phpunit/phpunit": "4.*",
-        "laravel/laravel": "~5.3.0",
-        "fzaninotto/faker": "~1.4"
+        "analogue/orm": "dev-master",
+        "phpunit/phpunit": "~5.0",
+        "laravel/laravel": "~5.4.0",
+        "fzaninotto/faker": "~1.4",
+        "laravel/browser-kit-testing": "^1.0"
     },
     "autoload-dev": {
         "classmap": [
@@ -33,6 +34,8 @@
         "psr-4": {
             "Stubs\\": "tests/Stubs"
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
     
 }

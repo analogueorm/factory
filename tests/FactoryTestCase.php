@@ -1,14 +1,14 @@
 <?php
 
-use Illuminate\Foundation\Testing\Concerns\InteractsWithDatabase;
+use Laravel\BrowserKitTesting\Concerns\InteractsWithDatabase;
+use Laravel\BrowserKitTesting\Concerns\InteractsWithConsole;
 use Illuminate\Contracts\Http\Kernel;
-use Illuminate\Filesystem\ClassFinder;
-use Illuminate\Filesystem\Filesystem;
 use Analogue\Factory\Factory;
 use Analogue\ORM\AnalogueServiceProvider;
 use Faker\Factory as Faker;
+use Laravel\BrowserKitTesting\TestCase as BaseTestCase;
 
-abstract class FactoryTestCase extends Illuminate\Foundation\Testing\TestCase
+abstract class FactoryTestCase extends BaseTestCase
 {
     use InteractsWithDatabase;
 
@@ -57,35 +57,8 @@ abstract class FactoryTestCase extends Illuminate\Foundation\Testing\TestCase
      */
     protected function migrateDatabase()
     {
-        $migrationPaths = [
-            __DIR__ . "/../vendor/laravel/laravel/database/migrations",
-        ];
-
-        foreach($migrationPaths as $path) {
-            $this->migrateDatabaseFromPath($path);
-        }
+        $this->artisan('migrate');
     }
-
-    /**
-     * Run all database migrations from the specified path
-     * 
-     * @param  string $path
-     * @return void
-     */
-    protected function migrateDatabaseFromPath($path)
-    {
-        $fileSystem = new Filesystem;
-        $classFinder = new ClassFinder;
-
-        foreach ($fileSystem->files($path) as $file) {
-            
-            $fileSystem->requireOnce($file);
-            $migrationClass = $classFinder->findClass($file);
-
-            (new $migrationClass)->up();
-        }
-    }
-
 
 }   
 

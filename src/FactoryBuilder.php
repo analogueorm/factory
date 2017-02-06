@@ -72,7 +72,7 @@ class FactoryBuilder extends EloquentFactoryBuilder {
      */
     public function make(array $attributes = [])
     {
-        if ($this->amount === 1) {
+        if ($this->amount === null) {
             return $this->makeInstance($attributes);
         } else {
             $results = [];

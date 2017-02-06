@@ -27,6 +27,7 @@ class FactoryTest extends FactoryTestCase
         $user = analogue_factory(User::class)->states('custom')->make();
         $this->assertInstanceOf(User::class, $user);
         $this->assertEquals('custom', $user->custom);
+        $this->assertNotNull($user->email);
     }
 
 }
