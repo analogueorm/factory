@@ -10,7 +10,6 @@ matrix:
   
 before_script:
   - travis_retry composer self-update
-  - travis_retry composer install --prefer-source --no-interaction
 
 script:
   - phpunit
@@ -26,5 +25,6 @@ env:
   - LARAVEL_VERSION="5.4"
   
 install:
-  - COMPOSER=tests/composer.${LARAVEL_VERSION}.json composer update
+  - COMPOSER=tests/composer.${LARAVEL_VERSION}.json composer install --prefer-source --no-interaction
+
 
