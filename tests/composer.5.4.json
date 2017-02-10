@@ -1,0 +1,41 @@
+{
+    "name": "analogue/factory",
+    "description": "Implementation of Illuminate database factory for Analogue orm",
+    "homepage": "http://github.com/analogueorm/factory",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rémi Collin",
+            "email": "rcollin2@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Analogue\\Factory\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.0.0",
+        "illuminate/support": "~5.4.0",
+        "illuminate/database": "~5.4.0",
+        "fzaninotto/faker": "~1.4"
+    },
+    "require-dev": {
+        "analogue/orm": "dev-master",
+        "phpunit/phpunit": "~5.0",
+        "laravel/laravel": "~5.4.0",
+        "fzaninotto/faker": "~1.4",
+        "laravel/browser-kit-testing": "^1.0"
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/FactoryTestCase.php"
+        ],
+        "psr-4": {
+            "Stubs\\": "tests/Stubs"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+    
+}
