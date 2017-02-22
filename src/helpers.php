@@ -3,6 +3,7 @@
 use Analogue\Factory\Factory;
 
 if (! function_exists('analogue_factory')) {
+    
     /**
      * Create a model factory builder for a given class, name, and amount.
      *
