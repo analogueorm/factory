@@ -80,7 +80,7 @@ class FactoryBuilder extends EloquentFactoryBuilder {
             for ($i = 0; $i < $this->amount; $i++) {
                 $results[] = $this->makeInstance($attributes);
             }
-
+            
             return new Collection($results);
         }
     }
@@ -117,6 +117,6 @@ class FactoryBuilder extends EloquentFactoryBuilder {
 
         $entityWrapper->setEntityAttributes(array_merge($this->applyStates($definition, $attributes), $attributes));
 
-        return $entityWrapper->getObject();
+        return $entityWrapper->unwrap();
     }
 }
