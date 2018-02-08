@@ -15,15 +15,15 @@
         }
     },
     "require": {
-        "php": ">=5.6.4",
-        "illuminate/support": "5.4.*|5.5.*|5.6.*",
-        "illuminate/database": "5.4.*|5.5.*|5.6.*",
+        "php": ">=7.0",
+        "illuminate/support": "5.5.*|5.6.*",
+        "illuminate/database": "5.5.*|5.6.*",
         "fzaninotto/faker": "~1.4"
     },
     "require-dev": {
-        "analogue/orm": "5.4.*|5.5.*|5.6.*",
+        "analogue/orm": "5.5.*|5.6.*",
         "phpunit/phpunit": "~5.0",
-        "laravel/laravel": "5.4.*|5.5.*|5.6.*",
+        "laravel/laravel": "5.5.*|5.6.*",
         "fzaninotto/faker": "~1.4",
         "laravel/browser-kit-testing": "^1.0"
     },
