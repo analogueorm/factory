@@ -6,7 +6,7 @@
     "authors": [
         {
             "name": "Rémi Collin",
-            "email": "rcollin2@gmail.com"
+            "email": "remi@code16.fr"
         }
     ],
     "autoload": {
@@ -21,9 +21,9 @@
         "fzaninotto/faker": "~1.4"
     },
     "require-dev": {
-        "analogue/orm": "dev-master",
+        "analogue/orm": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*",
         "phpunit/phpunit": "~5.0",
-        "laravel/laravel": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*-dev",
+        "laravel/laravel": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*",
         "fzaninotto/faker": "~1.4",
         "laravel/browser-kit-testing": "^1.0"
     },
@@ -35,7 +35,11 @@
             "Stubs\\": "tests/Stubs"
         }
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true
-    
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Analogue\\Factory\\FactoryServiceProvider"
+            ]
+        }
+    }
 }

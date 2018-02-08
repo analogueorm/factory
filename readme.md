@@ -1,4 +1,4 @@
-#Analogue ORM - Entity Factory
+# Analogue ORM - Entity Factory
 
 This package adds support the laravel's Model Factory' functionnality to the Analogue datamapper ORM. 
 
