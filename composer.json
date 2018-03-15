@@ -16,14 +16,14 @@
     },
     "require": {
         "php": ">=7.0",
-        "illuminate/support": "5.5.*|5.6.*",
-        "illuminate/database": "5.5.*|5.6.*",
+        "illuminate/support": ">=5.6.12",
+        "illuminate/database": ">=5.6.12",
         "fzaninotto/faker": "~1.4"
     },
     "require-dev": {
-        "analogue/orm": "5.5.*|5.6.*",
-        "phpunit/phpunit": "~5.0",
-        "laravel/laravel": "5.5.*|5.6.*",
+        "analogue/orm": "5.6.*",
+        "phpunit/phpunit": "~6.0",
+        "laravel/laravel": ">=5.6.12",
         "fzaninotto/faker": "~1.4",
         "laravel/browser-kit-testing": "^1.0"
     },

@@ -46,7 +46,7 @@ class FactoryBuilder extends EloquentFactoryBuilder {
 
         $this->entityFactory = new EntityFactory;
 
-        parent::__construct($class, $name, $definitions, $states, $faker);
+        parent::__construct($class, $name, $definitions, $states, [], [], $faker);
     }
 
     /**
